@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Some simple hello-world tests"""
+from app.testing import client
 from initDB import MOCK_DATA
 
 
