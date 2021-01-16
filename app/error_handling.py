@@ -4,6 +4,7 @@ from app.errors import NotFoundException
 from app.logging import LOGGER
 import traceback
 
+
 @APP.route("/something_went_wrong")
 def handle_generic_error():
     """Handle generic errors"""
@@ -11,6 +12,7 @@ def handle_generic_error():
                               "Sorry, something went wrong"))
     LOGGER.warning(message)
     return render_template("error.html", message=message)
+
 
 @APP.errorhandler(NotFoundException)
 @APP.errorhandler(Exception)
