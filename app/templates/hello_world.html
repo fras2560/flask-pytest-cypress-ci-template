@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 data-cy="welcomeHeader"></h1>
+  {% if entity %}
+    Hello {{entity.name}}
+  {% else %}
+    Hello world
+  {% endif %}
+</h1>
+<br>
+
+<p data-cy="welcomeMessage">
+    This is a repository template is to help someone get started. The template includes:
+    <ul>
+        <li>Flask</li>
+        <li>SQLAlchemy</li>
+        <li>Pytest</li>
+        <li>Cypress</li>
+    </ul>
+</p>
+{% endblock %}

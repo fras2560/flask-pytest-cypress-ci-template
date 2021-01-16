@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% if entity %}
+    <title>Hello {{entity.name}}</title>
+    {% else %}
+    <title>Hello</title>
+    {% endif %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Hello world app">
+    <meta name="author" content="TODO">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename="css/main.css") }}" rel="stylesheet">
+    {% block header %}
+    {% endblock %}
+  </head>
+  <body title="home" lang:>
+    <div class="container-fluid mainContent" role="main" title="main-content">
+        {% block content %} {% endblock %}
+    </div>
+  </body>
+  <footer>
+
+  </footer>
+  {% block script %}
+  {% endblock %}
+</html>

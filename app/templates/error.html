@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 id="error" data-cy="errorMessage">
+    Something went wrong
+</h1>
+<p id="errorMessage" data-cy="errorMessage">
+    {{ message }}
+</p>
+{% endblock %}
