@@ -5,12 +5,13 @@ from flask_sqlalchemy import SQLAlchemy
 """The database object."""
 DB = SQLAlchemy()
 
+
 class Entity(DB.Model):
     """
         A class used to store some entity information
         Columns:
             id: the unique id
-            name: the name of the entity  
+            name: the name of the entity
     """
     id = DB.Column(DB.Integer, primary_key=True)
     name = DB.Column(DB.String(256))
