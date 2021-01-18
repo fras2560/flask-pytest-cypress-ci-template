@@ -48,6 +48,7 @@ jobs:
           npm install
           npm run checkLint
           npm run test:all
+          killall coverage
           coverage xml -o e2e.xml
       - name: Upload Video Run
         if: always()
