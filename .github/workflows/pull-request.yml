@@ -37,29 +37,41 @@ jobs:
       - name: Test with python unittest
         run: |
           pip install -r requirements.txt
-          pytest --cov-report=xml --cov=app app/testing
-          coverage report --fail-under=80
-      - name: Upload code coverage
+          pytest --cov-report=xml:unit-testing.xml --cov=app app/testing
+      - name: Upload Unit-testing code coverage
         uses: codecov/codecov-action@v1
         with:
           flags: unittests # optional
           name: testing
+          files: unit-testing.xml
           fail_ci_if_error: true # optional (default = false)
           verbose: true # optional (default = false)
+
       - name: UI Test with cypress
         run: |
           export ARE_TESTING=true
           # run the server just in-memory
-          nohup python runserver.py  2>&1 &
+          nohup coverage run runserver.py  2>&1 &
           # now run the cypres tests against it
           cd cypress-testing
           npm install
           npm run checkLint
           npm run test:all
+          cd ..
+          coverage xml -o e2e.xml
+      - name: Upload E2E code coverage
+        uses: codecov/codecov-action@v1
+        with:
+          flags: e2e # optional
+          name: testing
+          files: e2e.xml
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
       - name: Upload Video Run
         if: always()
         uses: actions/upload-artifact@v1
         with:
           name: cypress-videos
           path: cypress-testing/cypress/videos
+
 
