@@ -49,6 +49,8 @@ jobs:
 
       - name: UI Test with cypress
         run: |
+          # remove previous coverage metrics
+          coverage erase
           export ARE_TESTING=true
           # run the server just in-memory
           nohup coverage run runserver.py  2>&1 &
