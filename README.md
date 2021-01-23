@@ -82,6 +82,7 @@ A Github action is run on pull requests to the main branch. This action could be
 3. code coverage report uploaded to codecov
 4. Starts the flask server and cypress tests against it
 5. Upload cypress testing video as an artifact
+6. Upload code coverage report from Cypress E2E testing
 
 # Heroku Production
 Setup using Heroku UI
