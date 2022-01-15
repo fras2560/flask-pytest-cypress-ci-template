@@ -13,16 +13,16 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-18.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Set up Python 3.8
+      - name: Set up Python 3.9.9
         uses: actions/setup-python@v1
         with:
-          python-version: 3.8
+          python-version: 3.9.9
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -58,17 +58,7 @@ jobs:
           cd cypress-testing
           npm install
           npm run checkLint
-          npm run test:all
-          cd ..
-          coverage xml -o e2e.xml
-      - name: Upload E2E code coverage
-        uses: codecov/codecov-action@v1
-        with:
-          flags: e2e # optional
-          name: testing
-          files: e2e.xml
-          fail_ci_if_error: true # optional (default = false)
-          verbose: true # optional (default = false)
+          npm run test
       - name: Upload Video Run
         if: always()
         uses: actions/upload-artifact@v1
