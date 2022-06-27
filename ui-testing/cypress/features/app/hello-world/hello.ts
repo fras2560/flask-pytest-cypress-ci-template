@@ -1,4 +1,4 @@
-import { When, Given } from 'cypress-cucumber-preprocessor/steps';
+import { When, Given } from "@badeball/cypress-cucumber-preprocessor";
 
 /** Acess the root url. */
 const navigateToRoot = (): void => {

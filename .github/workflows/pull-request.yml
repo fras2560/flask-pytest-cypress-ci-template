@@ -55,10 +55,9 @@ jobs:
           # run the server just in-memory
           nohup coverage run runserver.py  2>&1 &
           # now run the cypres tests against it
-          cd cypress-testing
+          cd ui-testing
           npm install
-          npm run checkLint
-          npm run test
+          npm run cypress:test
       - name: Upload Video Run
         if: always()
         uses: actions/upload-artifact@v1

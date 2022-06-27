@@ -1,0 +1,36 @@
+{
+  "name": "cypress-testing",
+  "version": "1.0.0",
+  "description": "End to end testing",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tsc --noEmit",
+    "cypress:open": "cypress open",
+    "cypress:test": "cypress run --spec \"**/*.feature\""
+  },
+  "keywords": [
+    "cypress-testing",
+    "ui-testing",
+    "template"
+  ],
+  "author": "dallas.fraser.waterloo@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "latest",
+    "@babel/preset-env": "latest",
+    "@badeball/cypress-cucumber-preprocessor": "latest",
+    "@cypress/webpack-preprocessor": "latest",
+    "@testing-library/cypress": "latest",
+    "babel-loader": "latest",
+    "cypress": "latest",
+    "ts-loader": "latest",
+    "typescript": "latest",
+    "webpack": "latest"
+  },
+  "stepDefinitions": [
+    "[filepath]/**/*.{js,ts}",
+    "[filepath].{js,ts}",
+    "cypress/features/global/**/*.{js,ts}",
+    "cypress/support/**/*.{js,ts}"
+  ]
+}

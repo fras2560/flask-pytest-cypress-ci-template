@@ -62,18 +62,18 @@ To use a Postgres database first install [Postgres](https://www.postgresql.org/d
 ```
 # unit-tests
 pytest --cov-report=html --cov=app app/testing
-#cypress tests
-cd cypress-testing
+#user interface end-to-end tests
+cd ui-testing
 npm install
-npm run test:all
+npm run cypress:test
 # manually run cypress file
-npm run open
+npm run cypress:open
 ```
 **Pytest**
 For unit testing [Pytest](https://docs.pytest.org/en/latest/) is being used. [Coverage](https://coverage.readthedocs.io/en/coverage-5.3.1/) is used to generate code coverage report. To run the unit tests use `pytest --cov-report=html --cov=app app/testing` and it will produce a HTML code coverage report as well.
 
-**Cypress Testing**
-There is a `README` in cypress-testing folder that dives into all the details.
+**User Interface Testing**
+There is a `README` in ui-testing folder that dives into all the details.
 
 # Github CI
 A Github action is run on pull requests to the main branch. This action could be used as CI to ensure testing is ran and code consistency using linting. The following is performed on
